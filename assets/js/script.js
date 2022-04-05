@@ -3,6 +3,10 @@ $(document).ready(function () {
         e.preventDefault();
         let email = $("form:first input:first").val();
         let password = $("form:first input:last").val();
+        if(!email || !password){
+            alert('Los campos no pueden estar vacios');
+            return false;
+        }
         const { data } = await axios.post("http://localhost:3000/usuario", {
             email,
             password,
@@ -15,6 +19,10 @@ $(document).ready(function () {
         e.preventDefault();
         let email = $("form:last input:first").val();
         let password = $("form:last input:last").val();
+        if(!email || !password){
+            alert('Los campos no pueden estar vacios');
+            return false;
+        }
         try {
             const { data } = await axios.post("http://localhost:3000/login", {
                 email,
